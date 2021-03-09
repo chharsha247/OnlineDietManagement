@@ -1,0 +1,38 @@
+<div *ngIf="uType=='admin'"><app-header></app-header></div>
+<div *ngIf="uType=='motivator'"><app-motivator-header></app-motivator-header></div>
+
+<br/><!----measure-->
+<div class="container">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Month</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Chest</th>
+                <th>Waist</th>
+                <th>Shoulders</th>
+                <th>Biceps</th>
+                <th>Leg</th>
+                <th>Thighs</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let measure of measures">
+            <tr>
+                <td>{{measure.email}}</td>
+                <td>{{measure.month}}</td>
+                <td>{{measure.height}}</td>
+                <td>{{measure.weight}}</td>
+                <td>{{measure.chest}}</td>
+                <td>{{measure.waist}}</td>
+                <td>{{measure.shoulders}}</td>
+                <td>{{measure.biceps}}</td>
+                <td>{{measure.leg}}</td>
+                <td>{{measure.thighs}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+

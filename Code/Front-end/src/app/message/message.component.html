@@ -1,0 +1,79 @@
+<div *ngIf="uType=='admin'"><app-header></app-header></div>
+<div *ngIf="uType=='user'"><app-challenger-header></app-challenger-header></div>
+<div *ngIf="uType=='motivator'"><app-motivator-header></app-motivator-header></div>
+<div *ngIf="uType=='admin'">
+    <div class="container">
+        <form>
+            <textarea class="form-control" name="message" [(ngModel)]="message" placeholder="Enter Message to Post"></textarea>
+            <select class="custom-select mr-sm-2" name="buId" [(ngModel)]="buId">
+                <option  name="buId" [(ngModel)]="buId" value="Motivator">Motivator</option>
+                <option  name="buId" [(ngModel)]="buId" value="Batch1">Batch1</option>
+                <option  name="buId" [(ngModel)]="buId" value="Batch2">Batch2</option> 
+                <option  name="buId" [(ngModel)]="buId" value="User">User</option>
+            </select>
+            <div *ngIf="!(buId=='Batch1' || buId=='Batch2')">
+                <input type="text" class="form-control" name="sendto" [(ngModel)]="sendto" placeholder="Motivator or User mail">
+            </div>
+            <button class="btn btn-primary" (click)="send()">Send</button>
+        </form>
+        <p>{{sentSuccess}}</p>
+    </div>
+</div>
+<div *ngIf="uType=='motivator'">
+    <div class="container" >
+        <form>
+            <textarea class="form-control" name="message" [(ngModel)]="message" placeholder="Enter Message to Post"></textarea>
+            <select class="custom-select mr-sm-2" name="buId" [(ngModel)]="buId">
+                <option  name="buId" [(ngModel)]="buId" value="Admin">Admin</option>
+                <option  name="buId" [(ngModel)]="buId" value="User">User</option>
+            </select>
+            <input type="text" class="form-control" name="sendto" [(ngModel)]="sendto" placeholder="Motivator or User mail">
+            <button class="btn btn-primary" (click)="send()">Send</button>
+        </form>
+        <p>{{sentSuccess}}</p>
+    </div>
+</div>
+<div *ngIf="uType=='user'">
+    <div class="container" >
+        <form>
+            <textarea class="form-control" name="message" [(ngModel)]="message" placeholder="Enter Message to Post"></textarea>
+            
+            <select class="custom-select mr-sm-2" name="buId" [(ngModel)]="buId">
+                <option  name="buId" [(ngModel)]="buId" value="Admin">Admin</option>
+                <option  name="buId" [(ngModel)]="buId" value="Motivator">Motivator</option>
+            </select>
+            <input type="text" class="form-control" name="sendto" [(ngModel)]="sendto" placeholder="Admin or Moderator mail">
+            <button class="btn btn-primary" (click)="send()">Send</button>
+        </form>
+        <p>{{sentSuccess}}</p>
+    </div>
+</div>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="viewSentMessages()">View Sent Messages</button>
+            <div *ngIf="viewMessage">
+                <div *ngFor="let msg of sentMessages">
+                    <p>{{msg.message}}</p>
+                    <p>{{msg.send_to}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="receiveMessages()">View Received Messages</button>
+            <div *ngIf="recMessage">
+                <div *ngFor="let msg of receivedMessages">
+                    <p>{{msg.message}}</p>
+                    <p>{{msg.send_from}}</p>
+                </div>
+            </div>
+            <div *ngIf="recMessage">
+                <div *ngFor="let msg of batchMessages">
+                    <p>{{msg.message}}</p>
+                    <p>{{msg.send_from}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div *ngIf="uType=='admin'"><app-header></app-header></div>
+<div *ngIf="uType=='user'"><app-challenger-header></app-challenger-header></div>
+<div *ngIf="uType=='admin'">
+    <div class="container row">
+        <div class="col-md-12">
+            <h1>Upload Diet plan</h1>
+        </div>
+    </div>
+    <div class="container row">
+        <div class="col-md-4">
+            <input type="file" accept="image/*" (change)="onFileChanged($event)">
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="sendTo" [(ngModel)]="sendTo" placeholder="BatchId">
+        </div>
+        <div class="col-md-4">
+            <input type="button" (click)="upload()" value="upload">
+        </div>
+    </div>
+    
+    <div class="container row">
+        <div class="col-md-12">
+            <div>{{message}}</div>
+        </div>
+    </div>
+    <hr/>
+    <button class="btn btn-primary" (click)="show()">Show Files</button>
+    <br>
+
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Files</div>
+                <ul>
+                    <div *ngFor="let file of files | async">
+                        <div class="panel-body">
+                            <li>
+                                <a href="http://localhost:8080/getFile/{{file.id}}">{{file.fileName}}</a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+        </div>       
+    </div>
+</div>
+    
+<div *ngIf="uType=='user'">
+    <button class="btn btn-primary" (click)="showByBatch()">Show Files</button>
+    <br>
+
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Files</div>
+                <ul>
+                    <div *ngFor="let file of files | async">
+                        <div class="panel-body">
+                            <li>
+                                <a href="http://localhost:8080/getFile/{{file.id}}">{{file.fileName}}</a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+        </div>       
+    </div>
+</div>
+
+    
+    

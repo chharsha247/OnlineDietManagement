@@ -1,0 +1,22 @@
+<app-header></app-header>
+<h4>Users for Approval</h4>
+<div class="container">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+            <tr>
+                <td><a [routerLink]="['/final-approval',user.userId]">{{user.userId}}</a></td>
+                <td>{{user.fullName}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </tbody>
+        
+    
+    </table>
+</div>

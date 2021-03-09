@@ -1,0 +1,48 @@
+<app-challenger-header></app-challenger-header>
+<h3 style="text-align: center;">Daily Log</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="breakfast" name="breakfast" [(ngModel)]="breakfast">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="lunch" name="lunch" [(ngModel)]="lunch">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="dinner" name="dinner" [(ngModel)]="dinner">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="fruits" name="fruits" [(ngModel)]="fruits">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="vegetables" name="vegetables" [(ngModel)]="vegetables">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="text" class="form-control" placeholder="workout" name="workout" [(ngModel)]="workout">
+                    </div>
+                </div><br>
+                
+                <button class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
+               {{success}}
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

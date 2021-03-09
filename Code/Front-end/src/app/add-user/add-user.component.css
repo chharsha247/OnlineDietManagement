@@ -1,0 +1,41 @@
+/* form{
+    text-align: center;
+}
+
+.tp-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+ }
+ .tp-radio-button {
+    margin: 3px;
+ }
+ .tp-selected-value {
+    margin: 15px 0;
+ }
+ .card {
+   border: 0;
+   border-radius: 1rem;
+   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+ } */
+
+ .divider-text {
+   position: relative;
+   text-align: center;
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+.divider-text span {
+   padding: 7px;
+   font-size: 12px;
+   position: relative;   
+   z-index: 2;
+}
+.divider-text:after {
+   content: "";
+   position: absolute;
+   width: 100%;
+   border-bottom: 1px solid #ddd;
+   top: 55%;
+   left: 0;
+   z-index: 1;
+}

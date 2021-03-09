@@ -1,0 +1,58 @@
+<app-challenger-header></app-challenger-header>
+<h3 style="text-align: center;">Monthly Measurement Chart</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="height" name="height" [(ngModel)]="height">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="weight" name="weight" [(ngModel)]="weight">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="chest" name="chest" [(ngModel)]="chest">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="waist" name="waist" [(ngModel)]="waist">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="shoulders" name="shoulders" [(ngModel)]="shoulders">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="biceps" name="biceps" [(ngModel)]="biceps">
+                    </div>
+                </div><br>
+                <div class="form-row">
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="leg" name="leg" [(ngModel)]="leg">
+                    </div>
+                    &nbsp;&nbsp;
+                    <!---->
+                    <div>
+                        <input type="number" class="form-control" placeholder="thighs" name="thighs" [(ngModel)]="thighs">
+                    </div>
+                </div><br>
+                <button class="btn btn-primary btn-lg" (click)="submit()">Submit</button>
+               {{success}}
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

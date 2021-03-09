@@ -1,0 +1,168 @@
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+ 
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+ 
+ 
+ <div class="container" style="max-width: 600px;" >
+ <hr>
+ 
+ <div class="card bg-light">
+ <article class="card-body mx-auto" style="max-width: 400px;">
+     <h4 class="card-title mt-3 text-center">Update User</h4>
+     <form>
+         <!--1.Name-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+         <input name="fullName" class="form-control" #fName="ngModel" placeholder="Full name" type="text" [(ngModel)]="user.fullName" required>
+         <div *ngIf="fName.invalid">
+             Name is required.
+           </div>
+     </div> <!-- form-group// -->
+       <!--2.Age-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+         <input name="age" class="form-control" placeholder="Age" type="text"[(ngModel)]="user.age" required>
+     </div> <!-- form-group// -->
+     <!-- Gender -->
+     <label for="gender"><b>Gender</b></label><br/>
+     <mat-radio-group class = "tp-radio-group" [(ngModel)] = "user.gender" name="gender" required>
+         <mat-radio-button class = "tp-radio-button"
+         *ngFor = "let option of genderOptions" [value] = "option">{{option}} &nbsp;</mat-radio-button>
+     </mat-radio-group>   
+     <!--17.Pregnant Status-->
+     <div *ngIf="user.gender=='Female'">
+         <label for="pregnantStatus"><b>Pregnant Status</b></label><br/>
+         <mat-radio-group class = "tp-radio-group" [(ngModel)] = "user.pregnantStatus" name="pregnantStatus" required>
+             <mat-radio-button class = "tp-radio-button"
+             *ngFor = "let option of pregOptions" [value] = "option">{{option}} &nbsp;</mat-radio-button>
+         </mat-radio-group>
+     </div>
+     <!--5.Email-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+         <input name="email" class="form-control" placeholder="Email address" type="email" [(ngModel)]="user.email" required>
+     </div> <!-- form-group// -->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+         </div>
+         <input name="mobileNumber" class="form-control" placeholder="Phone number" type="text" required [(ngModel)]="user.mobileNumber">
+     </div> <!-- form-group// -->
+     <!--13.Reason For Joining-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-question"></i> </span>
+          </div>
+         <input name="reasonForJoining" class="form-control" required placeholder="Reason for Joining" type="text"[(ngModel)]="user.reasonForJoining">
+     </div> <!-- form-group// -->
+     <!--10.Pincode-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-map-pin"></i> </span>
+          </div>
+         <input name="pinCode" class="form-control" required placeholder="Pincode" type="text" [(ngModel)]="user.pinCode">
+     </div>
+     <!--6.Address-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+          </div>
+         <!--<input name="" class="form-control" placeholder="Reason for Joining" type="text">-->
+         <textarea name="address" class="form-control" required placeholder="Address" [(ngModel)]="user.address"></textarea>
+     </div> <!-- form-group// -->
+     <!--7.City-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+         </div>
+         <select class="form-control" name="city" [(ngModel)]="user.city" required>
+             <option selected> Select City</option>
+             <option>Hyderabad</option>
+             <option>Pune</option>
+             <option>Vizag</option>
+         </select>
+         {{user.city}}
+     </div> <!-- form-group end.// -->
+     <!--8.State-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+         </div>
+         <select class="form-control" required name="state" [(ngModel)]="user.state">
+             <option>Select State</option>
+             <option>Telengana</option>
+             <option>AP</option>
+             <option>Maharashtra</option>
+         </select>
+     </div>
+     <!--9.Country-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+         </div>
+         <select class="form-control" required name="country" [(ngModel)]="user.country">
+             <option selected=""> Select Country</option>
+             <option>India</option>
+             <option>USA</option>
+         </select>
+     </div>
+     <!--Height-->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-child"></i> </span>
+         </div>
+         <input class="form-control" required placeholder="Height" type="number" name="height" [(ngModel)]="user.height">
+     </div> <!-- form-group// -->
+     <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-beer"></i> </span>
+         </div>
+         <input class="form-control" required placeholder="Weight" type="number" name="weight" [(ngModel)]="user.weight">
+     </div> <!-- form-group// -->
+     <!--Dietary Restrictions-->
+      <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-cube"></i> </span>
+          </div>
+         <input name="dietaryRistrictions" required [(ngModel)]="user.dietaryRistrictions" class="form-control" placeholder="Dietary Restrictions" type="text">
+     </div> <!-- form-group// -->
+     <!-- Food Type -->
+     <label for="dietaryCustom"><b>Dietary Custom</b></label><br>
+     <mat-radio-group class = "tp-radio-group" required [(ngModel)] = "user.dietaryCustom" name="dietaryCustom">
+         <mat-radio-button class = "tp-radio-button"
+         *ngFor = "let option of dietCustOptions" [value] = "option">{{option}} &nbsp;</mat-radio-button>
+     </mat-radio-group>
+     <!-- Health Condition -->
+     <label for="medicalConditions"><b>Medical Condition</b></label><br/>
+     <mat-radio-group class = "tp-radio-group" required [(ngModel)] = "user.medicalConditions" name="medicalConditions">
+         <mat-radio-button class = "tp-radio-button"
+         *ngFor = "let option of medconOptions" [value] = "option">{{option}} &nbsp;</mat-radio-button>
+     </mat-radio-group>
+     <!--Referral Code-->
+      <div class="form-group input-group">
+         <div class="input-group-prepend">
+             <span class="input-group-text"> <i class="fa fa-code"></i> </span>
+          </div>
+         <input name="referralCode" required [(ngModel)]="user.userReferenceCode" class="form-control" placeholder="Referral Code" type="text">
+          
+     </div> <!-- form-group// -->
+     <div class="form-group">
+         <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()"> Update  </button>
+     </div> <!-- form-group// -->               
+     <p>{{message}}</p>                                                     
+ </form>
+ </article>
+ </div> <!-- card.// -->
+ 
+ </div> 
+ <!--container end.//-->
+ 

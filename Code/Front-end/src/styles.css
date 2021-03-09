@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+    /* background-image: url("https://www.theibizacatering.com/wp-content/uploads/2015/01/TheIbizaCatering_Slide01.jpg"); */
+    background-image: url("http://3.bp.blogspot.com/-cGsmERRshGM/TkrFK4vYQjI/AAAAAAAALh8/RdDjhE96P2U/s1600/Set+of+Food+Wallpaper+%252821%2529.jpg");
+}

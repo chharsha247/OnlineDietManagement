@@ -1,0 +1,33 @@
+<div *ngIf="uType=='admin'"><app-header></app-header></div>
+<div *ngIf="uType=='motivator'"><app-motivator-header></app-motivator-header></div>
+
+
+<br/><!----dailyLog-->
+<div class="container">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                <th>Fruits</th>
+                <th>Vegetables</th>
+                <th>Dinner</th>
+                <th>Workout</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let dailyLog of dailyLogs">
+            <tr>
+                <td>{{dailyLog.email}}</td>
+                <td>{{dailyLog.date}}</td>
+                <td>{{dailyLog.breakfast}}</td>
+                <td>{{dailyLog.lunch}}</td>
+                <td>{{dailyLog.fruits}}</td>
+                <td>{{dailyLog.vegetables}}</td>
+                <td>{{dailyLog.dinner}}</td>
+                <td>{{dailyLog.workout}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
